@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div>
       <h1>Hello world!</h1>
-      <p>I gave up on CSS...</p>
+      <p className="text-primary">I gave up on CSS...</p>
     </div>
   );
 };
