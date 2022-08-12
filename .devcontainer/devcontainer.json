@@ -1,0 +1,16 @@
+{
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "extensions": [
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "liamhammett.inline-parameters",
+    "esbenp.prettier-vscode",
+    "2gua.rainbow-brackets",
+    "bradlc.vscode-tailwindcss",
+    "wmaurer.change-case",
+    "steoates.autoimport"
+  ]
+}
