@@ -1,8 +1,9 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     path: path.join(__dirname, "/build"),
     filename: "bundle.js",
@@ -11,11 +12,17 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: "./src/index.html",
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
   module: {
     rules: [
       {
-        test: /.js$/,
+        test: /.(ts|tsx)$/i,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -32,5 +39,8 @@ module.exports = {
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
 };
